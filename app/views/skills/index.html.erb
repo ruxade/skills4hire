@@ -1,0 +1,11 @@
+<h1>Available Skills</h1>
+
+<ul>
+  <% @skills.each do |skill| %>
+    <li>
+      <h3><%= link_to skill.title, skill_path(skill) %></h3>
+      <p><%= skill.description %></p>
+      <p>Price: <%= number_to_currency(skill.price) %></p>
+    </li>
+  <% end %>
+</ul>
