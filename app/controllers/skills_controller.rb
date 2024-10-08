@@ -11,6 +11,17 @@ class SkillsController < ApplicationController
     @skill = Skill.new
   end
 
+  # def edit
+  #   if @skill.
+  # end
+
+  def update
+    if @skills.user(skill_params)
+      redirect_to @skills, notice: 'Skill was successfully created.'
+    else
+      render :edit
+    end
+  end
 
   def create
     @skill = Skill.new(skill_params)

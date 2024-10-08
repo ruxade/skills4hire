@@ -1,0 +1,5 @@
+<h1><%= @skill.title %></h1>
+<p><%= @skill.description %></p>
+<p>Price: <%= number_to_currency(skill.price, :unit => "£") %></p>
+<p>Offered by: <%= @skill.user.name %></p>
+<%= link_to 'Back to Skills', skills_path %>
