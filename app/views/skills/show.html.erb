@@ -3,4 +3,5 @@
 <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
 <%= cl_image_tag @skill.photo.key, height: 300, width: 400, crop: :fill %>
 <p>Offered by: <%= @skill.user.name %></p>
+<%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
 <%= link_to 'Back to Skills', skills_path %>
