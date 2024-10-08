@@ -7,20 +7,21 @@ class SkillsController < ApplicationController
     @skill = Skill.find(params[:id])
   end
 
-  def new
-    @skill = Skill.new
+  def edit
+    @skill = Skill.find(params[:id])
   end
 
-  # def edit
-  #   if @skill.
-  # end
-
   def update
-    if @skills.user(skill_params)
-      redirect_to @skills, notice: 'Skill was successfully created.'
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      redirect_to @skill, notice: 'Skill was successfully created.'
     else
       render :edit
     end
+  end
+
+  def new
+    @skill = Skill.new
   end
 
   def create
@@ -39,6 +40,6 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:title, :description, :price)
+    params.require(:skill).permit(:title, :description, :price, :photo)
   end
 end

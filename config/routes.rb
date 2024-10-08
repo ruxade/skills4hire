@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   # only: [:create, :index, :show, :update, :delete]
   resources :skills do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :new]
   end
+
+  resources :bookings, only: [:index]
 end
