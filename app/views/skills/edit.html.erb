@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Edit a skill</h1>
+  <%= simple_form_for(@skill) do |f| %>
+    <%= f.input :title, placeholder: "Enter your skill title" %>
+    <%= f.input :description, placeholder: "Enter your skill description" %>
+    <%= f.input :price, placeholder: "Enter your price in pounds" %>
+      <%= f.input :photo, as: :file %>
+    <%= f.submit "Edit Skill" %>
+  <% end %>
+</div>

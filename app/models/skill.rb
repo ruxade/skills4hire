@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
   belongs_to :user
   has_many :booking
+  has_one_attached :photo
 
   validates :title, presence: true
   validates :description, presence: true

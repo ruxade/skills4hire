@@ -5,7 +5,7 @@
     <li>
       <h3><%= link_to skill.title, skill_path(skill) %></h3>
       <p><%= skill.description %></p>
-      <p>Price: <%= number_to_currency(skill.price) %></p>
+      <p>Price: <%= number_to_currency(skill.price, :unit => "£") %></p>
     </li>
   <% end %>
 </ul>
