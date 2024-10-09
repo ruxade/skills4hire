@@ -32,7 +32,7 @@ skill1 = Skill.new(
   user: user2
 )
 
-skill1.photo.attach(io: file1, filename: "spanish.jpg", content_type: "image/png")
+skill1.photo.attach(io: file1, filename: "spanish.jpg", content_type: "image/jpg")
 skill1.save
 
 file2 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400557/Guitar_u0sgbd.jpg").open

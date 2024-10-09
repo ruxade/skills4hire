@@ -1,7 +1,27 @@
-<h1><%= @skill.title %></h1>
-<p><%= @skill.description %></p>
-<%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
-<%= cl_image_tag @skill.photo.key, height: 300, width: 400, crop: :fill %>
-<p>Offered by: <%= @skill.user.name %></p>
-<%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
-<%= link_to 'Back to Skills', skills_path %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+
+
+    <div class="cover-image" style="background-image: url('<%= cl_image_path(@skill.photo.key, height: 500, crop: :fill) %>');">
+      <div class="overlay">
+        <h1 class="skill-title"><%= @skill.title %></h1>
+        <p class="skill-description"><%= @skill.description %></p>
+      </div>
+    </div>
+
+
+
+
+    <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
+    <p>Offered by: <%= @skill.user.name %></p>
+
+    <%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
+    <%= link_to 'Back to Skills', skills_path %>
+
+    </div>
+  </div>
+</div>
+
+<%# <%= cl_image_tag @skill.photo.key, height: 100, width: 100, crop: :fill %>
