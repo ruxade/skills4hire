@@ -1,12 +1,16 @@
-<h1>New Skill</h1>
 
-<div class="container">
-  <h1>Start a new skills</h1>
-  <%= simple_form_for(@skill) do |f| %>
-    <%= f.input :title, placeholder: "Enter your skill title" %>
-    <%= f.input :description, placeholder: "Enter your skill description" %>
-    <%= f.input :price, placeholder: "Enter your price in pounds" %>
-      <%= f.input :photo, as: :file %>
-    <%= f.submit "Add Skill" %>
-  <% end %>
-</div>
+
+      <h1>New Skill</h1>
+
+      <div class="container">
+        <h1>Start a new skills</h1>
+        <%= simple_form_for(@skill) do |f| %>
+          <%= f.input :title, placeholder: "Enter your skill title" %>
+          <%= f.input :description, placeholder: "Enter your skill description" %>
+          <%= f.input :price, placeholder: "Enter your price in pounds" %>
+            <%= f.input :photo, as: :file %>
+          <%= f.submit "Add Skill" %>
+        <% end %>
+      </div>
+
+
