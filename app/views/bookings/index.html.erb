@@ -5,7 +5,10 @@
     <li>
       <h3><%= booking.skill.title %></h3>
       <p><%= booking.skill.description %></p>
+      <p>Message: <%= booking.message %></p>
+      <p>Date: <%= booking.date %></p>
       <p>Status: <%= booking.status %></p>
+      <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>

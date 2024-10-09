@@ -1,9 +1,8 @@
-<h1>New Skill</h1>
-
 <div class="container">
-  <h1>Start a new booking</h1>
+  <h1>Start a new booking for <%= @skill.title %></h1>
   <%= simple_form_for [@skill, @booking] do |f| %>
-    <%= f.input :status, placeholder: "Enter the booking status" %>
+    <%= f.input :message, placeholder: "Enter the booking message." %>
+    <%= f.input :date, placeholder: "What day would you like to book?", type: "date" %>
     <%= f.submit "Add Skill" %>
   <% end %>
 </div>

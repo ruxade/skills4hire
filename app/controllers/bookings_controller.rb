@@ -21,10 +21,17 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+
+    redirect_to bookings_path, notice: "Booking deleted"
+  end
+
   # private
 
   def booking_params
-    params.require(:booking).permit(:status, :skill_id)
+    params.require(:booking).permit(:skill_id, :message, :date)
   end
 
   def check_logged_in
