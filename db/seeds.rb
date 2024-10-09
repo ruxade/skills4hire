@@ -109,7 +109,7 @@ skill8.save
 puts "Skills created"
 
 # BOOKINGS
-booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "confirmed")
-booking2 = Booking.create!(user: user3, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending")
+booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "confirmed", message: "booking 1", date: "2024-01-01")
+booking2 = Booking.create!(user: user3, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending", message: "booking 2", date: "2024-01-02")
 
 puts "Bookings created"

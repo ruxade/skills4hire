@@ -45,7 +45,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_08_152333) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "skill_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
+    t.string "message"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["skill_id"], name: "index_bookings_on_skill_id"
