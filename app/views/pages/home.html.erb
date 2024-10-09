@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
     <h1>Skills4Hire</h1>
 <%= button_to(
@@ -6,7 +6,19 @@
         destroy_user_session_path,
         method: :delete
       ) %>
-    <p>Share your passion</p>
+    <%# <p>Share your passion</p>
     <a class="btn btn-flat" href="#">Discover</a>
+  </div>
+</div> %>
+
+
+<div style="position: relative; height: 100vh;">
+  <video autoplay loop muted style="position: absolute; width: 100%; height: 100%; object-fit: cover;">
+    <source src="https://res.cloudinary.com/do1nrl43q/video/upload/v1728474291/homepage_z9lzse.mp4" type="video/mp4">
+    <%# Your browser does not support the video tag. %>
+  </video>
+  <div style="position: relative; z-index: 1; color: white; text-align: center; padding-top: 550px;">
+    <h1>Welcome to Skills4Hire</h1>
+    <p>Share your passion</p>
   </div>
 </div>
