@@ -1,6 +1,13 @@
 class SkillsController < ApplicationController
   def index
-    @skills = Skill.all
+    @search = params[:q]
+    if @search
+      @skills = Skill.where("LOWER(title) LIKE LOWER(?)",
+          "%" + Skill.sanitize_sql_like(@search) + "%"
+        )
+    else
+      @skills = Skill.all
+    end
   end
 
   def show
