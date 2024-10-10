@@ -3,6 +3,7 @@ class CreateSkills < ActiveRecord::Migration[7.1]
     create_table :skills do |t|
       t.string :title
       t.text :description
+      t.text :description_long
       t.float :price
       t.references :user, null: false, foreign_key: true
 
