@@ -12,8 +12,8 @@ class SkillsController < ApplicationController
 
   def show
     @skill = Skill.find(params[:id])
-    booking = current_user.bookings.where(status: "confirmed").last
-    @booking = booking if booking.review == nil
+    @bookings = current_user.bookings
+    @booking = @bookings.find_by(skill_id: @skill.id)
     @review = Review.new
   end
 
