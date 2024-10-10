@@ -8,21 +8,8 @@
 <p>Offered by: <%= @skill.user.name %></p>
 <%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
 <%= link_to 'Back to Skills', skills_path %>
-<h3>Reviews:</h3>
-<p><% @skill.reviews.each do |review| %>
-  <%= review.comment %>
-  <%= review.rating %>
-<% end %>
-<!-- app/views/reviews/new.html.erb -->
 
-<% unless @booking.nil? %>
-<h1>New review</h1>
-  <%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
-<% end%>
+
 
 <div class="container">
   <div class="row justify-content-center">
@@ -50,3 +37,19 @@
 </div>
 
 <%# <%= cl_image_tag @skill.photo.key, height: 100, width: 100, crop: :fill %>
+
+<h3>Reviews:</h3>
+<p><% @skill.reviews.each do |review| %>
+  <%= review.comment %>
+  <%= review.rating %>
+<% end %>
+<!-- app/views/reviews/new.html.erb -->
+
+<% unless @booking.nil? %>
+<h1>New review</h1>
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+<% end%>
