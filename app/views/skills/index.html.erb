@@ -4,9 +4,9 @@
   <div class="row">
     <% @skills.each do |skill| %>
       <!-- Each Skill Card Column (4 columns per row on large screens) -->
-      <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
 
-        <div class="card">
+        <div class="card h-100">
           <!-- Skill Image -->
           <% if skill.photo.attached? %>
             <%= cl_image_tag skill.photo.key, class: "card-img-top" %>

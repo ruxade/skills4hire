@@ -11,6 +11,7 @@ class SkillsController < ApplicationController
   end
 
   def show
+    check_logged_in
     @skill = Skill.find(params[:id])
     @bookings = current_user.bookings
     @booking = @bookings.find_by(skill_id: @skill.id)
@@ -58,5 +59,11 @@ class SkillsController < ApplicationController
 
   def skill_params
     params.require(:skill).permit(:title, :description, :description_long, :price, :photo)
+  end
+
+  def check_logged_in
+    if !current_user
+      redirect_to new_user_session_path
+    end
   end
 end

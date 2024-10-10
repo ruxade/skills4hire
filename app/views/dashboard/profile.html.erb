@@ -5,8 +5,8 @@
   <h2>My skills:</h2>
   <div class="row">
     <% @my_skills.each do |skill| %>
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-      <div class="card">
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
         <!-- Skill Image -->
         <% if skill.photo.attached? %>
           <%= cl_image_tag skill.photo.key, class: "card-img-top" %>
@@ -30,8 +30,8 @@
 
   <div class="row">
     <% @my_bookings.each do |booking| %>
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-      <div class="card">
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
         <!-- Skill Image -->
         <% if booking.skill.photo.attached? %>
           <%= cl_image_tag booking.skill.photo.key, class: "card-img-top" %>
@@ -59,8 +59,8 @@
   <h2>My Requests</h2>
     <div class="row">
     <% @my_requests.each do |booking| %>
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-      <div class="card">
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
         <!-- Skill Image -->
         <% if booking.skill.photo.attached? %>
           <%= cl_image_tag booking.skill.photo.key, class: "card-img-top" %>

@@ -1,14 +1,31 @@
-<h1>Your Bookings</h1>
+<div class="container">
+  <h1>My Bookings</h1>
 
-<ul>
-  <% @bookings.each do |booking| %>
-    <li>
-      <h3><%= booking.skill.title %></h3>
-      <p><%= booking.skill.description %></p>
-      <p>Message: <%= booking.message %></p>
-      <p>Date: <%= booking.date %></p>
-      <p>Status: <%= booking.status %></p>
-      <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <!-- Skill Image -->
+        <% if booking.skill.photo.attached? %>
+          <%= cl_image_tag booking.skill.photo.key, class: "card-img-top" %>
+        <% else %>
+          <img src="https://via.placeholder.com/300x200" alt="No image available" class="card-img-top" />
+        <% end %>
+        <!-- Skill Information -->
+        <div class="card-details">
+          <h5 class="card-title"><%= link_to booking.skill.title, skill_path(booking.skill) %></h5>
+          <div class="card-body">
+            <p>Message: <%= booking.message %></p>
+            <p>Date: <%= booking.date %></p>
+            <p>Status: <%= booking.status %></p>
+          </div>
+        </div>
+        <!-- Price in the Footer -->
+        <div class="card-footer">
+          <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
