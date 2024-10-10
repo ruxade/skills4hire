@@ -5,6 +5,9 @@ class SkillsController < ApplicationController
 
   def show
     @skill = Skill.find(params[:id])
+    booking = current_user.bookings.where(status: "confirmed").last
+    @booking = booking if booking.review == nil
+    @review = Review.new
   end
 
   def edit

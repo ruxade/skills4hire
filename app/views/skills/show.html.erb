@@ -1,7 +1,24 @@
 <h1><%= @skill.title %></h1>
 <p><%= @skill.description %></p>
 <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
-<%= cl_image_tag @skill.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @skill.photo.attached? %>
+<%# <%= cl_image_tag @skill.photo.key, height: 300, width: 400, crop: :fill %> %>
+<% end %>
 <p>Offered by: <%= @skill.user.name %></p>
 <%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
 <%= link_to 'Back to Skills', skills_path %>
+<h3>Reviews:</h3>
+<p><% @skill.reviews.each do |review| %>
+  <%= review.comment %>
+  <%= review.rating %>
+<% end %>
+<!-- app/views/reviews/new.html.erb -->
+
+<% unless @booking.nil? %>
+<h1>New review</h1>
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+<% end%>
