@@ -21,6 +21,19 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+
+  def accept
+    booking = Booking.find(params[:id])
+    booking.update(status: "accepted")
+    redirect_to "/profile", notice: "Booking accepted"
+  end
+
+  def decline
+    booking = Booking.find(params[:id])
+    booking.update(status: "declined")
+    redirect_to "/profile", notice: "Booking declined"
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
