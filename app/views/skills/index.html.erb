@@ -2,22 +2,19 @@
 
 
 <div class="container">
-<h1>Available Skills</h1>
+<h1>Discover your next passion </h1>
 
-<div>
-  <form method="get">
-    <input name="q" value="<%= @search %>">
-    <input type="submit">
-  </form>
-</div>
+
 
 
   <!-- Main Row Wrapper for the Cards -->
   <div class="row">
+
     <% @skills.each do |skill| %>
       <!-- Each Skill Card Column (4 columns per row on large screens) -->
       <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card h-100">
+
+        <div class="card">
           <!-- Skill Image -->
           <% if skill.photo.attached? %>
             <%= cl_image_tag skill.photo.key, class: "card-img-top" %>
@@ -26,17 +23,19 @@
           <% end %>
 
           <!-- Skill Information -->
-          <div class="card-body">
+          <div class="card-details">
             <h5 class="card-title"><%= link_to skill.title, skill_path(skill) %></h5>
-            <p class="card-text"><%= skill.description %></p>
+            <p class="card-body"><%= skill.description %></p>
           </div>
 
           <!-- Price in the Footer -->
           <div class="card-footer">
             <small class="text-muted">Price: <%= number_to_currency(skill.price, unit: "£") %></small>
           </div>
+
         </div>
       </div>
     <% end %>
   </div>
+
 </div>
