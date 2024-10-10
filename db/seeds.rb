@@ -32,7 +32,7 @@ skill1 = Skill.new(
   user: user2
 )
 
-skill1.photo.attach(io: file1, filename: "spanish.jpg", content_type: "image/png")
+skill1.photo.attach(io: file1, filename: "spanish.jpg", content_type: "image/jpg")
 skill1.save
 
 file2 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400557/Guitar_u0sgbd.jpg").open
@@ -109,7 +109,7 @@ skill8.save
 puts "Skills created"
 
 # BOOKINGS
-booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "confirmed")
-booking2 = Booking.create!(user: user3, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending")
+booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "confirmed", message: "booking 1", date: "2024-01-01")
+booking2 = Booking.create!(user: user3, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending", message: "booking 2", date: "2024-01-02")
 
 puts "Bookings created"

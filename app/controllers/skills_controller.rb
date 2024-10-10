@@ -1,6 +1,13 @@
 class SkillsController < ApplicationController
   def index
-    @skills = Skill.all
+    @search = params[:q]
+    if @search
+      @skills = Skill.where("LOWER(title) LIKE LOWER(?)",
+          "%" + Skill.sanitize_sql_like(@search) + "%"
+        )
+    else
+      @skills = Skill.all
+    end
   end
 
   def show
@@ -38,6 +45,13 @@ class SkillsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+
+    redirect_to skills_path, notice: "Skill was deleted"
   end
 
   private

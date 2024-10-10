@@ -11,8 +11,24 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <% flash.each do |type, msg| %>
+    <div>
+      <% if type == "notice" %>
+        <div class="alert alert-success" role="alert">
+          <%= msg %>
+        </div>
+      <% elsif type == "alert" %>
+        <div class="alert alert-danger" role="alert">
+          <%= msg %>
+        </div>
+      <% else %>
+        <div class="alert alert-primary" role="alert">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   </body>
 </html>

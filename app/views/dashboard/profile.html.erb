@@ -1,0 +1,42 @@
+<h1>Hello <%= @user.name %></h1>
+
+
+<h2>My skills:</h2>
+<div>
+  <% @my_skills.each do |skill| %>
+  <h3><%= skill.title %></h3>
+  <p><%= skill.description %></p>
+  <% end %>
+</div>
+
+<h2>My Bookings</h2>
+
+<ul>
+  <% @my_bookings.each do |booking| %>
+    <li>
+      <h3><%= booking.skill.title %></h3>
+      <p><%= booking.skill.description %></p>
+      <p>Message: <%= booking.message %></p>
+      <p>Date: <%= booking.date %></p>
+      <p>Status: <%= booking.status %></p>
+      <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>My Requests</h2>
+
+<ul>
+  <% @my_requests.each do |booking| %>
+    <li>
+      <h3><%= booking.skill.title %></h3>
+      <p><%= booking.skill.description %></p>
+      <p>Message: <%= booking.message %></p>
+      <p>Date: <%= booking.date %></p>
+      <p>Status: <%= booking.status %></p>
+      <p>Name: <%= booking.user.name %></p>
+      <%= link_to "Accept", "bookings/#{booking.id}/accept", class: "btn btn-success", data: { turbo_method: :patch } %>
+      <%= link_to "Reject", "bookings/#{booking.id}/decline", class: "btn btn-danger", data: { turbo_method: :patch } %>
+    </li>
+  <% end %>
+</ul>
