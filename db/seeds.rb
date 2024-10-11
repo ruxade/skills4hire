@@ -15,10 +15,16 @@ User.destroy_all
 puts "All records deleted"
 
 # USERS
-user1 = User.create!(email: "bruna@example.com", password: "password", name: "Bruna", about: "Brazillian.")
-user2 = User.create!(email: "carlos@example.com", password: "password", name: "Carlos", about: "Spanish")
-user3 = User.create!(email: "karen@example.com", password: "password", name: "Karen", about: "Brazillian")
-user4 = User.create!(email: "adelina@example.com", password: "password", name: "Adelina", about: "Romanian")
+user1 = User.create!(email: "bruna@example.com", password: "password", name: "Bruna", about: "Passionate about music and writing, Bruna is a skilled guitarist and creative writing instructor.
+Whether you're a beginner looking to learn your first chords or an aspiring author eager to develop compelling characters, Bruna's patient and engaging teaching style will help you reach your full potential.
+She believes in fostering a supportive and fun learning environment where students can explore their creativity and build confidence.")
+user2 = User.create!(email: "carlos@example.com", password: "password", name: "Carlos", about: "Carlos is fluent in Spanish, Python, and the language of laughter.
+He believes learning should be an adventure, not a chore. So if you're ready to spice up your life with new skills and a healthy dose of humour, join Carlos on a learning journey you won't soon forget.")
+user3 = User.create!(email: "karen@example.com", password: "password", name: "Karen", about: "Karen believes in the transformative power of travel, language, and mindful movement.
+As an experienced yoga instructor and French tutor, she encourages students to step outside their comfort zones, embrace new challenges, and cultivate a global mindset.
+Her classes are designed to be both enriching and enjoyable, fostering a sense of community and shared learning.")
+user4 = User.create!(email: "adelina@example.com", password: "password", name: "Adelina", about: "More than just teaching technique, Adelina helps her students develop a deep understanding of archery and tennis strategy.
+She believes that mental focus and strategic thinking are just as important as physical skill. With her guidance, you'll learn to analyse your performance, anticipate your opponent's moves, and make smart decisions under pressure.")
 
 puts "Users created"
 
@@ -28,7 +34,8 @@ file1 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400555
 skill1 = Skill.new(
   title: "Spanish Language",
   description: "Learn conversational Spanish with a native speaker.",
-  description_long: "Spanish is one of the most widely spoken languages in the world, making it a valuable asset in a globalised society. Here are 10 reasons to consider taking it up:
+  description_long: "Spanish is one of the most widely spoken languages in the world, making it a valuable asset in a globalised society.
+Here are 10 reasons to consider taking it up:
 Impress your friends with your accent: Show off your linguistic skills and impress your friends with your accent.
 Order food without mistakes: Avoid embarrassing food mishaps and ensure you get exactly what you want.
 Sing along to your favourite Latin music: Belt out the lyrics to your favourite Spanish songs with confidence.
@@ -60,8 +67,7 @@ Start a \"Guitar Hero\" tournament: Challenge your friends to a battle of the ba
 Become a \"Guitar Hero\" instructor: Teach others the secrets of the game.
 Start a \"Guitar Hero\" merchandise store: Sell \"Guitar Hero\" memorabilia and accessories.
 Become a \"Guitar Hero\" celebrity: Achieve internet fame and recognition.
-Just because it's fun! Learning to play guitar can be a rewarding and enjoyable experience, no matter the reason.
-",
+Just because it's fun! Learning to play guitar can be a rewarding and enjoyable experience, no matter the reason.",
   price: 40,
   user: user1
 )
@@ -73,12 +79,10 @@ file3 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400561
 skill3 = Skill.new(
   title: "Archery Training",
   description: "Master the art of archery with our training course.",
-  description_long: "Archery is a fascinating and rewarding sport that offers a variety of benefits.
-Physical and Mental Health
-Improve physical fitness: Archery is a low-impact sport that can help improve strength, flexibility, and balance.
-Enhance focus and concentration: Archery requires a high level of concentration and mental focus, which can help improve cognitive abilities.
-Reduce stress and anxiety: The rhythmic nature of archery can be a great way to reduce stress and improve overall well-being.
-",
+  description_long: "Ever dreamt of hitting the bullseye like Robin Hood (but with less outlaw activity)?
+  Archery lessons are your chance to channel your inner archer!
+  It's surprisingly zen (who knew holding a bow steady could be so calming?),
+  and you'll get a sneaky arm workout while you're at it. Plus, bragging rights when you hit that target dead center.",
   price: 50,
   user: user4
 )
@@ -89,7 +93,9 @@ file4 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400556
 skill4 = Skill.new(
   title: "French Language",
   description: "Learn French with an experienced tutor.",
-  description_long: "",
+  description_long: "Tired of subtitles ruining your French film experience?  Say \"au revoir\" to those distracting white boxes and \"bonjour\" to the nuances of French cinema!
+  With French lessons, you'll unlock a world of captivating stories, witty dialogue, and maybe even some existential pondering (it's a French thing).
+  Who needs popcorn when you have subtitles you can understand?",
   price: 35,
   user: user3
 )
@@ -100,7 +106,10 @@ file5 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400562
 skill5 = Skill.new(
   title: "Tennis Coaching",
   description: "Improve your tennis skills with a professional coach.",
-  description_long: "",
+  description_long: "Tennis: it's not just for Wimbledon champions and people with pristine white outfits.
+  Tennis coaching is for everyone, even those of us who currently consider \"hitting the ball over the net\" a major victory.
+  You'll learn the basics, have a good laugh (mostly at yourself, let's be honest), and get some exercise while you're at it.
+  Who knows, you might even discover a hidden talent for the sport!",
   price: 45,
   user: user4
 )
@@ -111,7 +120,9 @@ file6 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400561
 skill6 = Skill.new(
   title: "Python Programming",
   description: "Get started with Python programming from scratch.",
-  description_long: "",
+  description_long: "Warning: May cause extreme levels of employability. Learn Python and become the most sought-after person in the room.
+  Why? Because Python is the Swiss Army knife of coding languages—it can do everything from building websites to analysing data to automating your life.
+  (Side effects may include: increased salary, sudden urge to automate everything, and uncontrollable laughter at your own jokes.) Sign up now.",
   price: 60,
   user: user2
 )
@@ -122,7 +133,9 @@ file7 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400562
 skill7 = Skill.new(
   title: "Yoga Classes",
   description: "Join our beginner-friendly yoga sessions to improve flexibility and reduce stress.",
-  description_long: "",
+  description_long:"Feeling overwhelmed by life's chaos?  Yoga classes are your escape hatch!
+  You'll learn to breathe deeply, quiet your mind, and find your inner zen (or at least a moment of peace in a crazy world).
+  Plus, it's a fantastic way to improve your posture and reduce those pesky aches and pains.  Who needs a massage when you have yoga?",
   price: 55,
   user: user3
 )
@@ -133,7 +146,10 @@ file8 = URI.parse("https://res.cloudinary.com/do1nrl43q/image/upload/v1728400562
 skill8 = Skill.new(
   title: "Creative Writing",
   description: "Enhance your writing skills with a creative writer.",
-  description_long: "",
+  description_long:"Give life to the voices in your head (in a good way). Our Creative Writing workshop focuses on the heart of every great story: the characters.
+  Learn to develop personalities that sizzle, motivations that intrigue, and backstories that will make your readers say, \"Tell me more!\"
+  We'll delve into the psychology of character creation, explore techniques for crafting compelling dialogue, and help you build a cast of characters that will steal the show (and maybe even your heart).
+  Enrol now and let the character creation commence.",
   price: 40,
   user: user1
 )
