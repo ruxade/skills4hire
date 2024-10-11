@@ -1,40 +1,69 @@
-<div class="container">
+<div class="container-fluid d-flex justify-content-center align-items-center">
+<div class="row justify-content-center">
+  <div class="col-md-8">
 
-  <h1><%= @skill.title %></h1>
-  <p><%= @skill.description %></p>
-  <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
-  <% if @skill.photo.attached? %>
-    <div class="cover-image" style="background-image: url('<%= cl_image_path(@skill.photo.key, height: 500, crop: :fill) %>');">
-      <div class="overlay">
-        <h1 class="skill-title"><%= @skill.title %></h1>
-        <p class="skill-description"><%= @skill.description %></p>
+<div class="container border rounded-lg p-4 mt-5 shadow" style="border: 0.5px solid #ddd; border-radius: 20px;">
+
+    <h1><%= @skill.title %></h1>
+    <p><%= @skill.description %></p>
+    <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
+    <% if @skill.photo.attached? %>
+  <div class="cover-image" style="background-image: url('<%= cl_image_path(@skill.photo.key, height: 500, crop: :fill) %>'); border-radius: 20px;">
+
+       <div class="overlay">
+
+        </div>
       </div>
+    <% end %>
+
+    <div class="container mt-3">
+      <p class="skill-description"><%= @skill.description_long %></p>
     </div>
-  <% end %>
 
-  <p class="skill-description"><%= @skill.description_long %></p>
+    <p>Offered by: <%= @skill.user.name %></p>
+    <p><%= @skill.user.about %></p>
+    <% if @skill.user != current_user %>
+      <%= link_to 'Make a booking', new_skill_booking_path(@skill), class: "btn btn-primary" %>
+    <% end %>
 
-  <p>Offered by: <%= @skill.user.name %></p>
-  <p><%= @skill.user.about %></p>
-  <%= link_to 'Make a booking', new_skill_booking_path(@skill) %>
-  <%= link_to 'Back to Skills', skills_path %>
 
-<h3>Reviews:</h3>
-<p><% @skill.reviews.each do |review| %>
-  <%= review.comment %>
-  <%= review.rating %>
-  <%= link_to "Delete Review", skill_path(review), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-<% end %>
-<!-- app/views/reviews/new.html.erb -->
 
-<% if @booking && @booking.status == "accepted" %>
-  <h1>New review</h1>
-  <%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
-<% end%>
+    <%= link_to 'Back to Skills', skills_path , class:"btn btn-primary" %>
+
+
+
+<div class="container mt-5">
+
+  <div class="row">
+
+    <div class="col-6">
+      <h3>Reviews:</h3>
+      <p>
+        <% @skill.reviews.each do |review| %>
+          <%= review.comment %><br>
+          <%= review.rating %><br>
+          <%= link_to "Delete Review", skill_path(review), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>
+    </div>
+
+
+    <div class="col-6">
+      <% if @booking && @booking.status == "accepted" %>
+        <h1>New review</h1>
+        <%= simple_form_for [@booking, @review] do |f| %>
+          <%= f.input :comment %>
+          <%= f.input :rating %>
+          <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 
   <%# <%= cl_image_tag @skill.photo.key, height: 100, width: 100, crop: :fill %>
+</div>
+</div>
+</div>
 </div>

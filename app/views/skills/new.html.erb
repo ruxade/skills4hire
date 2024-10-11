@@ -2,7 +2,7 @@
 
 
 
-      <div class=" container" id="form-new">
+      <div class="container mt-5" id="form-new">
         <h1>Share your passion</h1>
         <%= simple_form_for(@skill) do |f| %>
           <%= f.input :title, placeholder: "Enter your skill title" %>
@@ -10,6 +10,6 @@
     <%= f.input :description_long, placeholder: "Enter your long skill description", :as => :text, :input_html => { 'rows' => 5, 'cols' => 10 } %>
           <%= f.input :price, placeholder: "Enter your price in pounds" %>
             <%= f.input :photo, as: :file %>
-          <%= f.submit "Add Skill" %>
+          <%= f.submit "Add Skill", class:"btn btn-primary" %>
         <% end %>
       </div>
