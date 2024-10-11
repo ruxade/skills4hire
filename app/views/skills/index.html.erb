@@ -16,13 +16,16 @@
 
           <!-- Skill Information -->
           <div class="card-details">
-            <h5 class="card-title"><%= link_to skill.title, skill_path(skill) %></h5>
+            <h5 class="card-title mt-3"><%= link_to skill.title, skill_path(skill) %></h5>
             <p class="card-body"><%= skill.description %></p>
           </div>
 
           <!-- Price in the Footer -->
           <div class="card-footer">
-            <small class="text-muted">Price: <%= number_to_currency(skill.price, unit: "£") %></small>
+
+          <%= link_to "More details", skill_path(skill), class: "btn btn-primary" %>
+
+            <small>Price: <%= number_to_currency(skill.price, unit: "£") %></small>
           </div>
 
         </div>

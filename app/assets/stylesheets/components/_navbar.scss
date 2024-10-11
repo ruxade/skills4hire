@@ -4,14 +4,31 @@
   // background: #ECDFCC;
   background: $pink;
   // background: white;
+  padding: auto 24px;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-right: 32px;
 
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   height: 40px;
+}
+
+.navbar-lewagon .nav-item {
+  margin-left: 16px; /* Space out navigation items */
+}
+
+#search {
+  position: absolute;
+  right: 50%;                   /* Position 50% from the left */
+  transform: translateX(-50%); /* Center it horizontally */
+  display: flex;
+  align-items: center;         /* Center content vertically */
 }
