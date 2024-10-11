@@ -11,9 +11,10 @@ class SkillsController < ApplicationController
   end
 
   def show
+    check_logged_in
     @skill = Skill.find(params[:id])
-    booking = current_user.bookings.where(status: "confirmed").last
-    @booking = booking if booking.review == nil
+    @bookings = current_user.bookings
+    @booking = @bookings.find_by(skill_id: @skill.id)
     @review = Review.new
   end
 
@@ -57,6 +58,12 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:title, :description, :price, :photo)
+    params.require(:skill).permit(:title, :description, :description_long, :price, :photo)
+  end
+
+  def check_logged_in
+    if !current_user
+      redirect_to new_user_session_path
+    end
   end
 end

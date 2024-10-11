@@ -1,20 +1,12 @@
-
-
-
 <div class="container">
-<h1>Discover your next passion </h1>
-
-
-
-
+  <h1>Discover your next passion </h1>
   <!-- Main Row Wrapper for the Cards -->
   <div class="row">
-
     <% @skills.each do |skill| %>
       <!-- Each Skill Card Column (4 columns per row on large screens) -->
-      <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
 
-        <div class="card">
+        <div class="card h-100">
           <!-- Skill Image -->
           <% if skill.photo.attached? %>
             <%= cl_image_tag skill.photo.key, class: "card-img-top" %>
@@ -37,5 +29,4 @@
       </div>
     <% end %>
   </div>
-
 </div>
