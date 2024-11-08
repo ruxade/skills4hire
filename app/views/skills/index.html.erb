@@ -4,7 +4,7 @@
   <div class="row">
     <% @skills.each do |skill| %>
       <!-- Each Skill Card Column (4 columns per row on large screens) -->
-      <div class="col-12 col-md-6 col-lg-4 mb-4">
+    <div class="col-8 col-md-6 col-lg-3 mb-4">
 
         <div class="card h-100">
           <!-- Skill Image -->
@@ -13,6 +13,8 @@
           <% else %>
             <img src="https://via.placeholder.com/300x200" alt="No image available" class="card-img-top" />
           <% end %>
+
+        <div class="card-content">
 
           <!-- Skill Information -->
           <div class="card-details">
@@ -30,6 +32,7 @@
 
         </div>
       </div>
+        </div>
     <% end %>
   </div>
 </div>
