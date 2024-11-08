@@ -1,10 +1,14 @@
-<div class="container">
+<div class="mx-auto" style="width: 70%;">
+
+<div class="container mt-4">
   <h1>Discover your next passion </h1>
+</div>
   <!-- Main Row Wrapper for the Cards -->
-  <div class="row">
+<div class="container mt-4">
+  <div class="row justify-content-left mx-auto m-2">
     <% @skills.each do |skill| %>
-      <!-- Each Skill Card Column (4 columns per row on large screens) -->
-    <div class="col-8 col-md-6 col-lg-3 mb-4">
+      <!-- Each Skill Card Column (3 columns per row on large screens) -->
+    <div class="col-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-left">
 
         <div class="card h-100">
           <!-- Skill Image -->
@@ -18,12 +22,12 @@
 
           <!-- Skill Information -->
           <div class="card-details">
-            <h5 class="card-title mt-3"><%= link_to skill.title, skill_path(skill) %></h5>
+            <h5 class="card-title mt-5"><%= link_to skill.title, skill_path(skill) %></h5>
             <p class="card-body"><%= skill.description %></p>
           </div>
 
           <!-- Price in the Footer -->
-          <div class="card-footer">
+          <div  class="footer">
 
           <%= link_to "More details", skill_path(skill), class: "btn btn-primary" %>
 
@@ -32,7 +36,8 @@
 
         </div>
       </div>
-        </div>
-    <% end %>
   </div>
+    <% end %>
+        </div>
+</div>
 </div>

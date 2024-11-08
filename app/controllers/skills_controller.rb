@@ -10,12 +10,17 @@ class SkillsController < ApplicationController
     end
   end
 
+  # def show
+  #   check_logged_in
+  #   @skill = Skill.find(params[:id])
+  #   @bookings = current_user.bookings
+  #   @booking = @bookings.find_by(skill_id: @skill.id)
+  #   @review = Review.new
+  # end
+  #
   def show
-    check_logged_in
     @skill = Skill.find(params[:id])
-    @bookings = current_user.bookings
-    @booking = @bookings.find_by(skill_id: @skill.id)
-    @review = Review.new
+    @booking = Booking.new # Ensure @booking is initialized here
   end
 
   def edit

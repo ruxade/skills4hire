@@ -10,19 +10,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
 
-<li class="nav-item active" id="search">
-  <div>
-    <form method="get" action="<%= skills_path %>" class="d-flex align-items-center">
-      <!-- Search Input Field -->
-      <input name="q" value="<%= @search %>" placeholder="Search " class="form-control me-2">
+        <li class="nav-item active" id="search">
+          <div class="nav-link">
+            <form method="get" action="<%= skills_path %>" class="d-flex align-items-center">
+              <!-- Search Input Field -->
+              <input name="q" value="<%= @search %>" placeholder="Search " class="form-control me-2">
 
-      <!-- Submit Button with Image Icon -->
-      <button type="submit" class="btn  p-0">
-        <img src="https://cdn0.iconfinder.com/data/icons/art-designing-glyph/2048/1871_-_Magnifier-512.png" alt="Search" width="24" height="24">
-      </button>
-    </form>
-  </div>
-</li>
+              <!-- Submit Button with Image Icon -->
+              <button type="submit" class="btn  p-0">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+          </div>
+        </li>
 
         <li class="nav-item active">
           <a class="nav-link" href="<%= skills_path %>">All Skills</a>
@@ -31,8 +31,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="<%= new_skill_path %>">Share your passion</a>
         </li>
+</ul>
 
-
+ <ul class="navbar-nav me-auto">
 
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-vector-600nw-1745180411.jpg" />

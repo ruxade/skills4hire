@@ -1,69 +1,72 @@
-<div class="container-fluid d-flex justify-content-center align-items-center">
-<div class="row justify-content-center">
-  <div class="col-md-8">
+<div class="container border rounded-lg p-4 shadow mt-3" style="border-radius: 20px; width: 70%;" id="show-page">
+  <div class="container-fluid mt-2">
+    <div class="row"  style=" display: flex; justify-content: space-between; ">
+      <!-- Skill Image and Title -->
+      <div class="col-12 mb-4">
+        <% if @skill.photo.attached? %>
+          <div class="cover-image" style="background-image: url('<%= cl_image_path(@skill.photo.key, height: 500, crop: :fill) %>'); border-radius: 20px;">
+            <div class="overlay"></div>
+          </div>
+        <% end %>
+        <h1 class="mt-3"><%= @skill.title %></h1>
+      </div>
 
-<div class="container border rounded-lg p-4 mt-5 shadow" style="border: 0.5px solid #ddd; border-radius: 20px;">
 
-    <h1><%= @skill.title %></h1>
-    <p><%= @skill.description %></p>
-    <%# <p>Price: <%= number_to_currency(skill.price, :unit => "£") %>
-    <% if @skill.photo.attached? %>
-  <div class="cover-image" style="background-image: url('<%= cl_image_path(@skill.photo.key, height: 500, crop: :fill) %>'); border-radius: 20px;">
 
-       <div class="overlay">
-
+      <!-- Description and Details Section -->
+      <div class="col-md-6">
+          <h3>Description</h3>
+        <div class="p-3 text-start">
+          <p><%= @skill.description %></p>
+          <p class="skill-description mt-3"><%= @skill.description_long %></p>
+          <p>Offered by: <%= @skill.user.name %></p>
+          <p><%= @skill.user.about %></p>
         </div>
       </div>
-    <% end %>
 
-    <div class="container mt-3">
-      <p class="skill-description"><%= @skill.description_long %></p>
-    </div>
+      <!-- Booking Form Section -->
+      <div class="col-md-5"  >
+          <h3>Make a New Booking</h3>
+       <div class="p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px; ">
+           <%# <%= link_to 'Make a booking', new_skill_booking_path(@skill), class: "btn btn-primary" %>
 
-    <p>Offered by: <%= @skill.user.name %></p>
-    <p><%= @skill.user.about %></p>
-    <% if @skill.user != current_user %>
-      <%= link_to 'Make a booking', new_skill_booking_path(@skill), class: "btn btn-primary" %>
-    <% end %>
+                  <% if @booking %>
+              <div class="container">
+                <h4>Start a new booking for <%= @skill.title %></h4>
+                <%= simple_form_for [@skill, @booking] do |f| %>
+                  <%= f.input :message, placeholder: "Enter the booking message." %>
+                  <%= f.input :date, placeholder: "What day would you like to book?", type: "date" %>
+                  <%= f.submit "Add Booking", class: "btn btn-secondary mt-2" %>
+                <% end %>
+              </div>
+            <% else %>
+              <p>Booking information is not available.</p>
+            <% end %>
 
+        </div>
 
+        <div class="p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px;">
+          <h3>Reviews</h3>
+          <% @skill.reviews.each do |review| %>
+            <p><strong>Comment:</strong> <%= review.comment %></p>
+            <p><strong>Rating:</strong> <%= review.rating %></p>
+            <%= link_to "Delete Review", skill_path(review), class: "btn btn-danger mb-2", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      </div>
 
-    <%= link_to 'Back to Skills', skills_path , class:"btn btn-primary" %>
-
-
-
-<div class="container mt-5">
-
-  <div class="row">
-
-    <div class="col-6">
-      <h3>Reviews:</h3>
-      <p>
-        <% @skill.reviews.each do |review| %>
-          <%= review.comment %><br>
-          <%= review.rating %><br>
-          <%= link_to "Delete Review", skill_path(review), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-        <% end %>
-      </p>
-    </div>
-
-
-    <div class="col-6">
-      <% if @booking && @booking.status == "accepted" %>
-        <h1>New review</h1>
-        <%= simple_form_for [@booking, @review] do |f| %>
-          <%= f.input :comment %>
-          <%= f.input :rating %>
-          <%= f.submit "Submit review", class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
+      <!-- Price Section -->
+      <div class="col-md-6 mt-8">
+        <div class="p-4  rounded-lg" style="border-radius: 20px;">
+          <h3>Price</h3>
+          <p>Price: <%= number_to_currency(@skill.price, unit: "£") %></p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-
-  <%# <%= cl_image_tag @skill.photo.key, height: 100, width: 100, crop: :fill %>
-</div>
-</div>
-</div>
+  <!-- Back Button -->
+  <div class="mt-4 text-center">
+    <%= link_to 'Back to Skills', skills_path, class: "btn btn-secondary" %>
+  </div>
 </div>

@@ -1,0 +1,37 @@
+.btn-primary {
+  background-color: $light-grey;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $pink;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+  scale: 80%;
+
+  &:hover,
+  &:focus {
+    background-color: $pink;
+    color: $light-grey;
+  }
+}
+
+.btn-secondary {
+  background-color: $pink;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $light-grey;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+
+
+  &:hover,
+  &:focus {
+    background-color: $pink;
+    color: $light-grey;
+  }
+}
