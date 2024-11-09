@@ -14,6 +14,61 @@ User.destroy_all
 
 puts "All records deleted"
 
+# REVIEWS
+review1 = Review.create!(
+  booking: booking1,
+  comment: "Amazing Python class! The explanations were clear, and the exercises were practical.",
+  rating: 5
+)
+
+review2 = Review.create!(
+  booking: booking1,
+  comment: "Great follow-up session. Learned a lot about automating tasks with Python.",
+  rating: 4
+)
+
+review3 = Review.create!(
+  booking: booking2,
+  comment: "The tennis coaching was very helpful and improved my skills significantly.",
+  rating: 4
+)
+
+review4 = Review.create!(
+  booking: booking2,
+  comment: "Fun and challenging! The instructor provided great tips for perfecting my serve.",
+  rating: 5
+)
+
+# Additional bookings and reviews for other skills
+booking3 = Booking.create!(user: user2, skill: Skill.find_by(title: "Guitar Lessons"), status: "completed", message: "Guitar practice session", date: "2024-02-10")
+review5 = Review.create!(
+  booking: booking3,
+  comment: "The guitar lesson was fantastic! Bruna's teaching style is very engaging.",
+  rating: 5
+)
+
+review6 = Review.create!(
+  booking: booking3,
+  comment: "I learned so much in one session. Can't wait for the next one!",
+  rating: 4
+)
+
+booking4 = Booking.create!(user: user4, skill: Skill.find_by(title: "Archery Training"), status: "completed", message: "Archery basics and techniques", date: "2024-03-05")
+review7 = Review.create!(
+  booking: booking4,
+  comment: "Archery training was superb! Adelina's focus on technique was very effective.",
+  rating: 5
+)
+
+review8 = Review.create!(
+  booking: booking4,
+  comment: "Great lesson with lots of practical tips. Highly recommended.",
+  rating: 4
+)
+
+puts "Reviews created"
+
+
 # USERS
 user1 = User.create!(email: "bruna@example.com", password: "password", name: "Bruna", about: "Passionate about music and writing, Bruna is a skilled guitarist and creative writing instructor.
 Whether you're a beginner looking to learn your first chords or an aspiring author eager to develop compelling characters, Bruna's patient and engaging teaching style will help you reach your full potential.
