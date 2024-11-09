@@ -21,9 +21,12 @@
 }
 
 
-#show-page {
-  body {
-    background-color: $pink;
-  }
+.show-page {
 
+    // background-color: $pink;
+    background: linear-gradient(to top, #0f0140e6, rgb(204, 197, 182));
+
+
+
+    background-color: $secondary;
 }

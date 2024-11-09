@@ -14,60 +14,6 @@ User.destroy_all
 
 puts "All records deleted"
 
-# REVIEWS
-review1 = Review.create!(
-  booking: booking1,
-  comment: "Amazing Python class! The explanations were clear, and the exercises were practical.",
-  rating: 5
-)
-
-review2 = Review.create!(
-  booking: booking1,
-  comment: "Great follow-up session. Learned a lot about automating tasks with Python.",
-  rating: 4
-)
-
-review3 = Review.create!(
-  booking: booking2,
-  comment: "The tennis coaching was very helpful and improved my skills significantly.",
-  rating: 4
-)
-
-review4 = Review.create!(
-  booking: booking2,
-  comment: "Fun and challenging! The instructor provided great tips for perfecting my serve.",
-  rating: 5
-)
-
-# Additional bookings and reviews for other skills
-booking3 = Booking.create!(user: user2, skill: Skill.find_by(title: "Guitar Lessons"), status: "completed", message: "Guitar practice session", date: "2024-02-10")
-review5 = Review.create!(
-  booking: booking3,
-  comment: "The guitar lesson was fantastic! Bruna's teaching style is very engaging.",
-  rating: 5
-)
-
-review6 = Review.create!(
-  booking: booking3,
-  comment: "I learned so much in one session. Can't wait for the next one!",
-  rating: 4
-)
-
-booking4 = Booking.create!(user: user4, skill: Skill.find_by(title: "Archery Training"), status: "completed", message: "Archery basics and techniques", date: "2024-03-05")
-review7 = Review.create!(
-  booking: booking4,
-  comment: "Archery training was superb! Adelina's focus on technique was very effective.",
-  rating: 5
-)
-
-review8 = Review.create!(
-  booking: booking4,
-  comment: "Great lesson with lots of practical tips. Highly recommended.",
-  rating: 4
-)
-
-puts "Reviews created"
-
 
 # USERS
 user1 = User.create!(email: "bruna@example.com", password: "password", name: "Bruna", about: "Passionate about music and writing, Bruna is a skilled guitarist and creative writing instructor.
@@ -81,6 +27,7 @@ Her classes are designed to be both enriching and enjoyable, fostering a sense o
 user4 = User.create!(email: "adelina@example.com", password: "password", name: "Adelina", about: "More than just teaching technique, Adelina helps her students develop a deep understanding of archery and tennis strategy.
 She believes that mental focus and strategic thinking are just as important as physical skill. With her guidance, you'll learn to analyse your performance, anticipate your opponent's moves, and make smart decisions under pressure.")
 
+users = [user1, user2, user3, user4]
 puts "Users created"
 
 # SKILLS
@@ -214,7 +161,26 @@ skill8.save
 puts "Skills created"
 
 # BOOKINGS
-booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "accepted", message: "booking 1", date: "2024-01-01")
-booking2 = Booking.create!(user: user3, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending", message: "booking 2", date: "2024-01-02")
+booking1 = Booking.create!(user: user1, skill: Skill.find_by(title: "Python Programming"), status: "accepted", message: "Learning Python basics", date: "2024-01-01")
+booking2 = Booking.create!(user: user2, skill: Skill.find_by(title: "Tennis Coaching"), status: "pending", message: "Tennis practice session", date: "2024-02-15")
+booking3 = Booking.create!(user: user3, skill: Skill.find_by(title: "Guitar Lessons"), status: "completed", message: "Guitar practice for beginners", date: "2024-03-10")
+booking4 = Booking.create!(user: user4, skill: Skill.find_by(title: "Archery Training"), status: "completed", message: "Archery basics training", date: "2024-04-05")
+booking5 = Booking.create!(user: user1, skill: Skill.find_by(title: "French Language"), status: "accepted", message: "French conversation practice", date: "2024-05-20")
+booking6 = Booking.create!(user: user2, skill: Skill.find_by(title: "Yoga Classes"), status: "completed", message: "Yoga for relaxation", date: "2024-06-15")
+booking7 = Booking.create!(user: user3, skill: Skill.find_by(title: "Creative Writing"), status: "pending", message: "Creative writing workshop", date: "2024-07-10")
+booking8 = Booking.create!(user: user4, skill: Skill.find_by(title: "Spanish Language"), status: "completed", message: "Spanish conversation lessons", date: "2024-08-01")
 
 puts "Bookings created"
+
+# REVIEWS
+review1 = Review.create!(booking: booking1, comment: "Amazing Python class! The explanations were clear and practical.", rating: 5)
+review2 = Review.create!(booking: booking2, comment: "Great tennis session, improved my skills significantly.", rating: 4)
+review3 = Review.create!(booking: booking3, comment: "The guitar lessons were very engaging and informative.", rating: 5)
+review4 = Review.create!(booking: booking4, comment: "Archery training was superb, I learned a lot!", rating: 5)
+review5 = Review.create!(booking: booking5, comment: "Enjoyed the French lessons, very interactive!", rating: 4)
+review6 = Review.create!(booking: booking6, comment: "Yoga session was calming and well-structured.", rating: 5)
+review7 = Review.create!(booking: booking7, comment: "The creative writing workshop was enlightening.", rating: 4)
+review8 = Review.create!(booking: booking8, comment: "Spanish lessons were fun and practical.", rating: 5)
+
+puts "Reviews created"
+

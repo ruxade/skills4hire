@@ -1,5 +1,5 @@
-<div class="container border rounded-lg p-4 shadow mt-3" style="border-radius: 20px; width: 70%;" id="show-page">
-  <div class="container-fluid mt-2">
+<div class="container  p-4  mt-3" id="show-card" style="border-radius: 20px; width: 70%;" id="show-page">
+  <div class="container-fluid mt-2" >
     <div class="row"  style=" display: flex; justify-content: space-between; ">
       <!-- Skill Image and Title -->
       <div class="col-12 mb-4">
@@ -19,10 +19,13 @@
         <div class="p-3 text-start">
           <p><%= @skill.description %></p>
           <p class="skill-description mt-3"><%= @skill.description_long %></p>
-          <p>Offered by: <%= @skill.user.name %></p>
+
+          <div class="p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px; ">
+          <p>Offered by: <strong> <%= @skill.user.name %> </strong> </p>
           <p><%= @skill.user.about %></p>
         </div>
       </div>
+         </div>
 
       <!-- Booking Form Section -->
       <div class="col-md-5"  >
@@ -31,7 +34,7 @@
            <%# <%= link_to 'Make a booking', new_skill_booking_path(@skill), class: "btn btn-primary" %>
 
                   <% if @booking %>
-              <div class="container">
+              <div class="container" >
                 <h4>Start a new booking for <%= @skill.title %></h4>
                 <%= simple_form_for [@skill, @booking] do |f| %>
                   <%= f.input :message, placeholder: "Enter the booking message." %>
@@ -45,25 +48,33 @@
 
         </div>
 
-        <div class="p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px;">
-          <h3>Reviews</h3>
-          <% @skill.reviews.each do |review| %>
-            <p><strong>Comment:</strong> <%= review.comment %></p>
-            <p><strong>Rating:</strong> <%= review.rating %></p>
-            <%= link_to "Delete Review", skill_path(review), class: "btn btn-danger mb-2", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-      </div>
+     <h3 class="mt-5">Reviews</h3>
+<div class="p-4 mt-2 ">
+<% @skill.reviews.each do |review| %>
+  <div class="container mt-4 text-left p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px;">
+
+    <p><strong> <%= review.booking.user.name %>:</strong> <%= review.comment %></p>
+    <p><strong>Rating:</strong>
+      <% review.rating.to_i.times do %>
+        <i class="fa fa-star text-warning"></i> <!-- Font Awesome filled star icon -->
+      <% end %>
+    </p>
+  </div>
+<% end %>
+
+
+
 
       <!-- Price Section -->
-      <div class="col-md-6 mt-8">
-        <div class="p-4  rounded-lg" style="border-radius: 20px;">
-          <h3>Price</h3>
+          <h3 class=" mt-4 text-center">Price</h3>
+
+        <div class="container mt-4 text-left p-4 border rounded-lg mt-4 shadow" style="border-radius: 20px;">
           <p>Price: <%= number_to_currency(@skill.price, unit: "£") %></p>
         </div>
       </div>
-    </div>
+
   </div>
+</div>
 
   <!-- Back Button -->
   <div class="mt-4 text-center">
