@@ -184,3 +184,4 @@ review8 = Review.create!(booking: booking8, comment: "Spanish lessons were fun a
 
 puts "Reviews created"
 
+

@@ -12,6 +12,37 @@
 }
 
 /* Card Styling */
+.card-2 {
+  min-height: 200px;
+  max-height: 450px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #703e62;
+  transition: transform 0.5s ease-out, border-color 0.3s ease-out;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+
+  .card-img-top {
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: inherit;
+    opacity: 0.6;
+
+  }
+
+  .card:hover &,
+  .card:focus-within & {
+    transform: scale(1.2);
+  }
+
+}
+#completed {
+  background-color: #605678;
+}
+#skills{
+  background-color: #536493;
+}
+
 .card {
 
   min-height: 350px;
@@ -151,4 +182,3 @@
 
 
 /* Button Styling */
-

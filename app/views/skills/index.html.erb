@@ -1,32 +1,27 @@
-<div class="show-page">
+<div class="show-page mb-5">
 
 
+<div class="carousel mx-auto" style="width: 60%;">
 
-<div class="carousel mx-auto" style="width: 80%;">
   <div class="carousel__container">
-    <% @skills.each do |skill| %>
+    <% @skills.reverse.each do |skill| %>
       <div class="card" id="carousel-item">
-        <!-- Skill Image -->
-          <%= cl_image_tag skill.photo.key, class: "card-img-top" %>
- <div class="carousel-item__details">
-          <div class="controls">
-            <%= link_to skill_path(skill), class: "fas fa-play-circle" do %>
-              <span class="visually-hidden">View Skill</span>
-            <% end %>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h5 class="carousel-item__details--title"><%= skill.title %></h5>
-               </div>
+        <%= link_to skill_path(skill) do %>
+          <%= cl_image_tag skill.photo.key, class: "card-img-top carousel-item__img" %>
+        <% end %>
+        <div class="carousel-item__details">
+          <h5 class="carousel-item__details--title"><strong> <%= categorize_skill(skill) %></strong></h5>
+            <%# <%= skill.title.split.first %>
+        </div>
       </div>
-
     <% end %>
   </div>
 </div>
 
 <div class="mx-auto" style="width: 70%;">
 
-<div class="container mt-4">
-  <h1>Discover your next passion </h1>
+<div class="container mt-4 mb-5 ">
+  <h1><strong>Discover your next passion </strong></h1>
 </div>
 
 

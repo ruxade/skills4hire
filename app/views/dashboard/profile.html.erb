@@ -1,13 +1,15 @@
 
-<div class="container ml-4">
-  <h1>Hello <%= @user.name %></h1>
+
+<div class="container ml-4 mt-5" >
+<h1 style="border-bottom: 1px solid #3B1C32; width: 70%; margin: 10px auto;">Hello <%= @user.name %></h1>
 
   <div class="row mt-4">
     <!-- First Column: My Skills -->
     <div class="col-md-4">
-      <h2>My Skills:</h2>
+      <div class="p-4  rounded-lg mt-4  " style="border-radius: 20px;">
+      <h2>My Skills</h2>
       <% @my_skills.each do |skill| %>
-        <div class="card mb-4">
+        <div class=" card-2 border rounded-lg mb-4 mt-4" id="skills">
           <!-- Skill Image -->
           <% if skill.photo.attached? %>
             <%= cl_image_tag skill.photo.key, class: "card-img-top" %>
@@ -18,16 +20,21 @@
           <div class="card-details p-3">
             <h5 class="card-title"><%= link_to skill.title, skill_path(skill) %></h5>
             <p class="card-text">Description: <%= skill.description %></p>
+             <div class="card-footer">
+            <%= link_to "Edit", "#", class: "btn btn-danger"%>
+             </div>
           </div>
         </div>
       <% end %>
     </div>
+    </div>
 
     <!-- Second Column: Requests -->
     <div class="col-md-4">
-      <h2>Requests:</h2>
+      <div class="p-4  rounded-lg mt-4  " style="border-radius: 20px;">
+      <h2>Requests:  <%= @my_requests.count %></h2>
       <% @my_requests.each do |request| %>
-        <div class="card mb-4">
+        <div class="card-2 border rounded-lg mb-4 mt-4">
           <!-- Request Image -->
           <% if request.skill.photo.attached? %>
             <%= cl_image_tag request.skill.photo.key, class: "card-img-top" %>
@@ -39,21 +46,23 @@
             <h5 class="card-title"><%= link_to request.skill.title, skill_path(request.skill) %></h5>
             <p class="card-text">Message: <%= request.message %></p>
             <p class="card-text">Date: <%= request.date %></p>
-            <p class="card-text">Status: <%= request.status %></p>
+            <p class="card-text">Status: <strong><%= request.status %></strong></p>
           </div>
-          <div class="card-footer">
+          <div class="p-4 card-footer">
             <%= link_to "Accept", "bookings/#{request.id}/accept", class: "btn btn-success", data: { turbo_method: :patch } %>
             <%= link_to "Reject", "bookings/#{request.id}/decline", class: "btn btn-danger", data: { turbo_method: :patch } %>
           </div>
         </div>
       <% end %>
     </div>
+    </div>
 
     <!-- Third Column: My Bookings -->
     <div class="col-md-4">
-      <h2>My Bookings:</h2>
+      <div class="p-4  rounded-lg mt-4  " style="border-radius: 20px;">
+      <h2>My Bookings:  <%= @my_bookings.count %></h2>
       <% @my_bookings.each do |booking| %>
-        <div class="card mb-4">
+        <div class="card-2 border rounded-lg mb-4 mt-4" id="completed">
           <!-- Booking Image -->
           <% if booking.skill.photo.attached? %>
             <%= cl_image_tag booking.skill.photo.key, class: "card-img-top" %>
@@ -65,13 +74,12 @@
             <h5 class="card-title"><%= link_to booking.skill.title, skill_path(booking.skill) %></h5>
             <p class="card-text">Message: <%= booking.message %></p>
             <p class="card-text">Date: <%= booking.date %></p>
-            <p class="card-text">Status: <%= booking.status %></p>
+            <p class="card-text">Status: <strong> <%= booking.status %></strong></p>
           </div>
-          <div class="card-footer">
-            <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-          </div>
+
         </div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
