@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to bookings_path, notice: "Booking successfully created"
+      redirect_to profile_path, notice: "Booking successfully created"
     else
       flash[:alert] = "Booking could not be created. Please check your input."
       render :new
